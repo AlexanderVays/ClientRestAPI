@@ -1,0 +1,10 @@
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\bin\Debug\ClientRestAPI.exe.config
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\bin\Debug\ClientRestAPI.exe
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\bin\Debug\ClientRestAPI.pdb
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csprojAssemblyReference.cache
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.restAPIForm.resources
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.Properties.Resources.resources
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.GenerateResource.cache
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.exe
+C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.pdb
