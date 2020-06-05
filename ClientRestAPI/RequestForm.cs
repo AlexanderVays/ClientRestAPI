@@ -24,6 +24,7 @@ namespace ClientRestAPI
         {
             RestAPI restAPI = new RestAPI();
             restAPI.endPoint = txtRestAPI.Text;
+            txtResponse.Text = "";
             debugOutput("Rest Client Created");
             string strResponse = restAPI.MakeRequest();
             debugOutput(strResponse);
