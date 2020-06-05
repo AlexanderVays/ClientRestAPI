@@ -30,31 +30,37 @@ namespace ClientRestAPI
         public string MakeRequest() 
         {
             string strResponse = string.Empty;
+            //performing URI check
 
-            WebRequest request = WebRequest.Create(endPoint);
-            request.Method = httpMethod.ToString();
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse()) 
+            if (Uri.IsWellFormedUriString(endPoint, UriKind.Absolute) && (endPoint.StartsWith("http") || endPoint.StartsWith("https")))
             {
-                if (response.StatusCode != HttpStatusCode.OK) 
-                {
-                    throw new ApplicationException("Error: " + response.StatusCode.ToString());
+                WebRequest request = WebRequest.Create(endPoint);
+                request.Method = httpMethod.ToString();
 
-                }
-
-                //process the response stream (could be JSON, XML, HTML, etc)
-                using (Stream responseStream = response.GetResponseStream()) 
+                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
-                    if (responseStream != null) 
+                    if (response.StatusCode != HttpStatusCode.OK)
                     {
-                        using (StreamReader streamReader = new StreamReader(responseStream)) 
-                        {
-                            strResponse = streamReader.ReadToEnd();
-                        } // end of StreamReader
+                        throw new ApplicationException("Error: " + response.StatusCode.ToString());
                     }
-                } //end of using responseStream
-            } // end of using response
 
+                    //process the response stream (could be JSON, XML, HTML, etc)
+                    using (Stream responseStream = response.GetResponseStream())
+                    {
+                        if (responseStream != null)
+                        {
+                            using (StreamReader streamReader = new StreamReader(responseStream))
+                            {
+                                strResponse = streamReader.ReadToEnd();
+                            } // end of StreamReader
+                        }
+                    } //end of using responseStream
+                } // end of using response
+                
+            } else
+            {
+                strResponse = "Fail: invalid input URI string";
+            }
             return strResponse;
         }
     }

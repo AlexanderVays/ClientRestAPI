@@ -8,3 +8,13 @@ C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRest
 C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.CoreCompileInputs.cache
 C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.exe
 C:\Users\Alexander\source\repos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.pdb
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\ClientRestAPI.exe.config
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\ClientRestAPI.exe
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\ClientRestAPI.pdb
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csprojAssemblyReference.cache
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.restAPIForm.resources
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.Properties.Resources.resources
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.GenerateResource.cache
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.CoreCompileInputs.cache
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.exe
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.pdb
