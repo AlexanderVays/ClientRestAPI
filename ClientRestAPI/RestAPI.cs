@@ -36,8 +36,7 @@ namespace ClientRestAPI
             {
                 WebRequest request = WebRequest.Create(endPoint);
                 request.Timeout = 5000; //request timeout limit 5000 millisec (5 sec)
-                request.Method = httpMethod.ToString();
-                request.ContentType = "application/json";
+                request.Method = httpMethod.ToString(); //GET method for now, later on other methods will be added
                 try
                 {
                     using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
