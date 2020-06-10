@@ -18,3 +18,10 @@ D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.GenerateR
 D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.CoreCompileInputs.cache
 D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.exe
 D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.pdb
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\Newtonsoft.Json.dll
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\System.Net.Http.Formatting.dll
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\System.Web.Http.dll
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\Newtonsoft.Json.xml
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\System.Net.Http.Formatting.xml
+D:\GitRepos\ClientRestAPI\ClientRestAPI\bin\Debug\System.Web.Http.xml
+D:\GitRepos\ClientRestAPI\ClientRestAPI\obj\Debug\ClientRestAPI.csproj.CopyComplete

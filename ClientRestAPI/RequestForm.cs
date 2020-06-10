@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,8 +27,8 @@ namespace ClientRestAPI
             RestAPI restAPI = new RestAPI();
             restAPI.endPoint = txtRestAPI.Text;
             txtResponse.Text = "";
-            debugOutput("Rest Client Created");
-            string strResponse = restAPI.MakeRequest();
+            debugOutput("Rest Web Client Created");
+            string strResponse = restAPI.MakeWebRequest();
             debugOutput(strResponse);
         }
 
@@ -44,6 +46,37 @@ namespace ClientRestAPI
                 System.Diagnostics.Debug.Write(ex.Message, ToString() + Environment.NewLine);
             }
         }
-        #endregion 
+        #endregion
+
+        private void btnLocal_Click(object sender, EventArgs e)
+        {
+            RestAPI restAPI = new RestAPI();
+            debugOutput("Rest Local Client Created");
+            //string strResponse = restAPI.MakeLocalRequest();
+            debugOutput("This feature not yet implemented.");
+        }
+
+        private void comboBoxMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxMethod.SelectedIndex;
+            Object selectedItem = comboBoxMethod.SelectedItem;
+            switch (selectedIndex)
+            {
+                case 0:
+                    RestAPI.httpMethod = httpVerb.GET;
+                    break;
+                case 1:
+                    RestAPI.httpMethod = httpVerb.POST;
+                    break;
+                case 2:
+                    RestAPI.httpMethod = httpVerb.PUT;
+                    break;
+                case 3:
+                    RestAPI.httpMethod = httpVerb.DELETE;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

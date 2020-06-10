@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,24 +21,28 @@ namespace ClientRestAPI
     class RestAPI
     {
         public string endPoint { get; set; }
-        public httpVerb httpMethod { get; set; }
+        public static httpVerb httpMethod { get; set; }
 
         public RestAPI() 
         {
             endPoint = string.Empty;
-            httpMethod = httpVerb.GET;
         }
 
-        public string MakeRequest() 
+        public string MakeWebRequest() 
         {
-            string strResponse = string.Empty;
+            StringBuilder sb = new StringBuilder();
             //performing URI check
 
             if (Uri.IsWellFormedUriString(endPoint, UriKind.Absolute) && (endPoint.StartsWith("http") || endPoint.StartsWith("https")))
             {
-                WebRequest request = WebRequest.Create(endPoint);
+                HttpWebRequest request = WebRequest.Create(endPoint) as HttpWebRequest;
                 request.Timeout = 5000; //request timeout limit 5000 millisec (5 sec)
-                request.Method = httpMethod.ToString(); //GET method for now, later on other methods will be added
+                request.Method = httpMethod.ToString() != null ? httpMethod.ToString() : httpVerb.GET.ToString(); 
+                request.Headers.Add("Key", "Value");
+                request.Accept = "application/json";
+                sb.Append("\r\nRequest Information:\r\n" + "Method: " + request.Method + "\r\nRequestURI: " + request.RequestUri + "\r\nHost Header: " 
+                    + request.Host + "\r\nAccept: " + request.Accept + "\r\nTimeout: " + request.Timeout + 
+                    "\r\n\r\n");
                 try
                 {
                     using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
@@ -53,7 +59,7 @@ namespace ClientRestAPI
                             {
                                 using (StreamReader streamReader = new StreamReader(responseStream))
                                 {
-                                    strResponse = streamReader.ReadToEnd();
+                                    sb.Append("Response Information: \r\n" + streamReader.ReadToEnd());
                                 } // end of StreamReader
                             }
                         } //end of using responseStream
@@ -61,37 +67,36 @@ namespace ClientRestAPI
                 }
                 catch (System.Net.WebException ex) //catch WebException like (401 Unauthorized error)
                 {
-                    strResponse = ex.Message;
+                    return ex.Message;
                 }
                 
             } else
             {
-                strResponse = "Fail: invalid input URI string";
+                return "Fail: invalid input URI string";
+            }
+            return sb.ToString();
+
+        }
+
+        public string MakeLocalRequest() 
+        {
+            string strResponse = string.Empty;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost/ClientRestAPI/");
+            // Add an Accept header for JSON format.    
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            // List all Names.    
+            HttpResponseMessage response = client.GetAsync("api/Values").Result;  // Blocking call!    
+            if (response.IsSuccessStatusCode)
+            {
+                strResponse = response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                strResponse =  $"{(int)response.StatusCode} ({response.ReasonPhrase})";
             }
             return strResponse;
-
-
-        /* var request = System.Net.WebRequest.Create(endpoint);
-        request.Timeout = 5000;
-        request.Method = "GET";
-        request.Headers.Add("api-key", "asdf@1234");
-        request.Credentials = new NetworkCredential("UserName", "Password");
-        request.ContentType = "application/json";
-        try
-        {
-            using (var response = request.GetResponse())
-            {
-                using (var stream = response.GetResponseStream())
-                {
-                    var reader = new StreamReader(stream, System.Text.Encoding.UTF8);
-                    textBox1.Text = reader.ReadToEnd();
-                }
-            }
-        }
-        catch (System.Net.WebException ex)
-        {
-            textBox1.Text = ex.Message;
-        } */
         }
     }
 }
+
