@@ -59,20 +59,38 @@ namespace ClientRestAPI
         private void comboBoxMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBoxMethod.SelectedIndex;
-            Object selectedItem = comboBoxMethod.SelectedItem;
             switch (selectedIndex)
             {
                 case 0:
-                    RestAPI.httpMethod = httpVerb.GET;
+                    RestAPI.httpMethod = HttpVerb.GET;
                     break;
                 case 1:
-                    RestAPI.httpMethod = httpVerb.POST;
+                    RestAPI.httpMethod = HttpVerb.POST;
                     break;
                 case 2:
-                    RestAPI.httpMethod = httpVerb.PUT;
+                    RestAPI.httpMethod = HttpVerb.PUT;
                     break;
                 case 3:
-                    RestAPI.httpMethod = httpVerb.DELETE;
+                    RestAPI.httpMethod = HttpVerb.DELETE;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void comboBoxAccept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex2 = comboBoxAccept.SelectedIndex;
+            switch (selectedIndex2)
+            {
+                case 0:
+                    RestAPI.responseFormat = ResponseFormat.HTML;
+                    break;
+                case 1:
+                    RestAPI.responseFormat = ResponseFormat.JSON;
+                    break;
+                case 2:
+                    RestAPI.responseFormat = ResponseFormat.XML;
                     break;
                 default:
                     break;

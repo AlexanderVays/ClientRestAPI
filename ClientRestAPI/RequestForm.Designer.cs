@@ -35,6 +35,8 @@
             this.btnRun = new System.Windows.Forms.Button();
             this.comboBoxMethod = new System.Windows.Forms.ComboBox();
             this.labelMethod = new System.Windows.Forms.Label();
+            this.labelAccept = new System.Windows.Forms.Label();
+            this.comboBoxAccept = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtRestAPI
@@ -108,11 +110,35 @@
             this.labelMethod.TabIndex = 6;
             this.labelMethod.Text = "Method:";
             // 
+            // labelAccept
+            // 
+            this.labelAccept.AutoSize = true;
+            this.labelAccept.Location = new System.Drawing.Point(363, 130);
+            this.labelAccept.Name = "labelAccept";
+            this.labelAccept.Size = new System.Drawing.Size(92, 29);
+            this.labelAccept.TabIndex = 7;
+            this.labelAccept.Text = "Accept:";
+            // 
+            // comboBoxAccept
+            // 
+            this.comboBoxAccept.FormattingEnabled = true;
+            this.comboBoxAccept.Items.AddRange(new object[] {
+            "HTML",
+            "JSON",
+            "XML"});
+            this.comboBoxAccept.Location = new System.Drawing.Point(461, 127);
+            this.comboBoxAccept.Name = "comboBoxAccept";
+            this.comboBoxAccept.Size = new System.Drawing.Size(121, 37);
+            this.comboBoxAccept.TabIndex = 8;
+            this.comboBoxAccept.SelectedIndexChanged += new System.EventHandler(this.comboBoxAccept_SelectedIndexChanged);
+            // 
             // restAPIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 770);
+            this.Controls.Add(this.comboBoxAccept);
+            this.Controls.Add(this.labelAccept);
             this.Controls.Add(this.labelMethod);
             this.Controls.Add(this.comboBoxMethod);
             this.Controls.Add(this.btnRun);
@@ -138,6 +164,8 @@
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.ComboBox comboBoxMethod;
         private System.Windows.Forms.Label labelMethod;
+        private System.Windows.Forms.Label labelAccept;
+        private System.Windows.Forms.ComboBox comboBoxAccept;
     }
 }
 

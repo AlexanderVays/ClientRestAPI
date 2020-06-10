@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ClientRestAPI
 {
-    public enum httpVerb
+    public enum HttpVerb
     {
         GET,
         POST,
@@ -18,10 +18,18 @@ namespace ClientRestAPI
         DELETE
     }
 
+    public enum ResponseFormat
+    {
+        HTML,
+        JSON,
+        XML,
+    }
+
     class RestAPI
     {
         public string endPoint { get; set; }
-        public static httpVerb httpMethod { get; set; }
+        public static HttpVerb httpMethod { get; set; }
+        public static ResponseFormat responseFormat {get; set;}
 
         public RestAPI() 
         {
@@ -37,9 +45,9 @@ namespace ClientRestAPI
             {
                 HttpWebRequest request = WebRequest.Create(endPoint) as HttpWebRequest;
                 request.Timeout = 5000; //request timeout limit 5000 millisec (5 sec)
-                request.Method = httpMethod.ToString() != null ? httpMethod.ToString() : httpVerb.GET.ToString(); 
+                request.Method = httpMethod.ToString() != null ? httpMethod.ToString() : HttpVerb.GET.ToString(); 
                 request.Headers.Add("Key", "Value");
-                request.Accept = "application/json";
+                request.Accept = responseFormat == ResponseFormat.HTML ? $"text/{responseFormat.ToString().ToLower()}" : $"application/{responseFormat.ToString().ToLower()}";
                 sb.Append("\r\nRequest Information:\r\n" + "Method: " + request.Method + "\r\nRequestURI: " + request.RequestUri + "\r\nHost Header: " 
                     + request.Host + "\r\nAccept: " + request.Accept + "\r\nTimeout: " + request.Timeout + 
                     "\r\n\r\n");
