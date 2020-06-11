@@ -37,6 +37,7 @@
             this.labelMethod = new System.Windows.Forms.Label();
             this.labelAccept = new System.Windows.Forms.Label();
             this.comboBoxAccept = new System.Windows.Forms.ComboBox();
+            this.btnLocal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtRestAPI
@@ -56,7 +57,7 @@
             this.txtResponse.Multiline = true;
             this.txtResponse.Name = "txtResponse";
             this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResponse.Size = new System.Drawing.Size(593, 222);
+            this.txtResponse.Size = new System.Drawing.Size(705, 222);
             this.txtResponse.TabIndex = 1;
             // 
             // labelURL
@@ -132,11 +133,22 @@
             this.comboBoxAccept.TabIndex = 8;
             this.comboBoxAccept.SelectedIndexChanged += new System.EventHandler(this.comboBoxAccept_SelectedIndexChanged);
             // 
+            // btnLocal
+            // 
+            this.btnLocal.Location = new System.Drawing.Point(56, 508);
+            this.btnLocal.Name = "btnLocal";
+            this.btnLocal.Size = new System.Drawing.Size(309, 40);
+            this.btnLocal.TabIndex = 9;
+            this.btnLocal.Text = "Run Localhost URL";
+            this.btnLocal.UseVisualStyleBackColor = true;
+            this.btnLocal.Click += new System.EventHandler(this.btnLocal_Click);
+            // 
             // restAPIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 770);
+            this.Controls.Add(this.btnLocal);
             this.Controls.Add(this.comboBoxAccept);
             this.Controls.Add(this.labelAccept);
             this.Controls.Add(this.labelMethod);
@@ -166,6 +178,7 @@
         private System.Windows.Forms.Label labelMethod;
         private System.Windows.Forms.Label labelAccept;
         private System.Windows.Forms.ComboBox comboBoxAccept;
+        private System.Windows.Forms.Button btnLocal;
     }
 }
 

@@ -48,8 +48,9 @@ namespace ClientRestAPI
                 request.Method = httpMethod.ToString() != null ? httpMethod.ToString() : HttpVerb.GET.ToString(); 
                 request.Headers.Add("Key", "Value");
                 request.Accept = responseFormat == ResponseFormat.HTML ? $"text/{responseFormat.ToString().ToLower()}" : $"application/{responseFormat.ToString().ToLower()}";
+                request.ContentType = responseFormat == ResponseFormat.HTML ? $"text/{responseFormat.ToString().ToLower()}; charset=UTF-8" : $"application/{responseFormat.ToString().ToLower()}; charset=UTF-8"; 
                 sb.Append("\r\nRequest Information:\r\n" + "Method: " + request.Method + "\r\nRequestURI: " + request.RequestUri + "\r\nHost Header: " 
-                    + request.Host + "\r\nAccept: " + request.Accept + "\r\nTimeout: " + request.Timeout + 
+                    + request.Host + "\r\nAccept: " + request.Accept + "\r\nContentType: " + request.ContentType + "\r\nTimeout: " + request.Timeout + 
                     "\r\n\r\n");
                 try
                 {
